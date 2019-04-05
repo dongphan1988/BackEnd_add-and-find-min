@@ -15,24 +15,23 @@
 </form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        //Bước 1 : lấy chuỗi nhập vào;
+    //Bước 1 : lấy chuỗi nhập vào;
     $text = $_POST["text"];
 
-        //Bước 2 : tách chuổi thành mảng mới;
+    //Bước 2 : tách chuổi thành mảng mới;
     $arrayNumber = explode(' ', $text);
-    echo "Array your in put is : <br>".$text;
+    echo "Array your in put is : <br>" . $text;
 
-        //Bước 3 : tìm min
+    //Bước 3 : tìm min
     $min = $arrayNumber[0];
     echo "<br>" . $arrayNumber[0];
     for ($key = 0; $key < count($arrayNumber); $key++) {
         if ($min > $arrayNumber[$key]) {
             $min = $arrayNumber[$key];
         }
-    }
-
         //Bước 4 : In kết quả
-    echo "<br>" . "min of array is : " . $min;
+        echo "<br>" . "min of array is : " . $min;
+    }
 }
 ?>
 </body>
