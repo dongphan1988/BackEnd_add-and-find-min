@@ -9,29 +9,26 @@
 </head>
 <body>
 <form action="" method="post">
-    push element of array separated by spaces:
+    push element of array separated by spaces: <br>
     <input type="text" name="text"/>
     <input type="submit" value="FIND MIN"/>
 </form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //Bước 1 : lấy chuỗi nhập vào;
     $text = $_POST["text"];
-
-    //Bước 2 : tách chuổi thành mảng mới;
-    $arrayNumber = explode(' ', $text);
-    echo "Array your in put is : <br>" . $text;
-
-    //Bước 3 : tìm min
-    $min = $arrayNumber[0];
-    echo "<br>" . $arrayNumber[0];
-    for ($key = 0; $key < count($arrayNumber); $key++) {
-        if ($min > $arrayNumber[$key]) {
-            $min = $arrayNumber[$key];
+    function findMin($text)
+    {
+        $text = $_POST["text"];
+        $array = explode(' ', $text);
+        $min = $array[0];
+        for ($key = 0; $key < count($array); $key++) {
+            if ($min > $array[$key]) {
+                $min = $array[$key];
+            }
         }
-        //Bước 4 : In kết quả
-        echo "<br>" . "min of array is : " . $min;
+        return $min;
     }
+    echo "show number : ".$text."<br> min in your array ".findMin($text);
 }
 ?>
 </body>
